@@ -35,3 +35,7 @@ let e : IEmployee = {
 }
 
 e.greet("Hello");
+
+//auto detect type when init
+let age = 10
+// age = 'aa'
