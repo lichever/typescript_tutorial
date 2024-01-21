@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bind Example</title>
+  </head>
+  <body>
+    <h1>Bind Example</h1>
+
+    <!-- 定时2秒 开启 -->
+    <button>发送请求</button>
+
+    <script>
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', function(){
+        this.disabled = true;
+        
+        //fail because this is not button, 
+        // setTimeout(function(){
+        // console.log(this); //window
+        //   this.disabled = false;
+        // }, 2000);        
+        
+        //方法1：使用arrow function
+        // setTimeout(()=>{
+        // console.log(this); //btn
+        //   this.disabled = false;
+        // }, 2000);     
+
+        //方法2：使用bind
+        setTimeout(function(){
+        console.log(this); //btn
+          this.disabled = false;
+        }.bind(this), 2000);  //bind(this) 传入this，使得this指向btn   
+
+      });
+    </script>
+  </body>
+</html>
