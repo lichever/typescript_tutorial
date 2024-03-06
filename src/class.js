@@ -1,0 +1,33 @@
+const arr = [1, ,2];
+
+for(let i = 0; i < arr.length; i++){
+    console.log(i , arr[i], this);
+}
+
+
+for(const [i, item] of arr.entries() ){
+    console.log(i, item, this);
+}
+
+
+for(const k in arr ){
+    console.log(k , arr[k], this);
+}
+
+
+arr.forEach((item, i) => {
+    console.log(i, item, this);
+
+} );
+
+
+// let employee = {
+//     firstName: 'Peter',
+//     lastName: 'Doe',
+//     employeeId: 1
+// };
+
+
+// for(const [i, item] of Object.entries(arr) ){
+//     console.log(i, item, Math.random());
+// }

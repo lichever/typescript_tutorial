@@ -26,3 +26,9 @@ if __name__ == '__main__':
     while pq:
         # 打印堆中的下一个最大元素
         print(heappop(pq))
+    
+    print('---' * 10)
+    pq2 = [(7, 0), (7, 3), (7, 4), (4, 1), (6, 2), (1, 5)]
+    heapq.heapify(pq2)
+    while pq2:
+        print(heappop(pq2)) 
