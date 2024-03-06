@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="clockButton">Click Me To Show The Time</div>
+
+    <div id="clockDisplay" class="test test2"></div>
+    <p class="test">This is my website!</p>
+    <p>You can't hack me!</p>
+
+    <ol id="ol">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+    </ol>
+
+    <div id="exampleElement">get/ set attribute</div>
+
+    <!-- ---------------------------------------------------------------- -->
+    <script type="text/javascript">
+
+    // 
+      document.getElementById("clockButton").onclick = () => {
+        let time = new Date();
+        document.getElementById("clockDisplay").innerHTML =
+          "<strong>time</strong>";
+        // document.getElementById("clockDisplay").textContent = "<strong>time</strong>";
+        document.getElementById("clockDisplay").style = "color: red";
+      };
+
+      const clockDisplay = document.getElementById("clockDisplay");
+      const cls = clockDisplay.getAttribute("class");
+      console.log(cls);
+
+      let element = document.getElementById("exampleElement");
+
+      // Set the "data-info" attribute to "exampleData"
+      element.setAttribute("data-info", "exampleData");
+
+      // Retrieve the value of the "data-info" attribute
+      let dataInfo = element.getAttribute("data-info");
+      console.log(dataInfo); // Output: "exampleData"
+
+      element.addEventListener(
+        "mouseover",
+        function (e) {
+          console.log(e);
+          console.log(e.target);
+          console.log(e.target.value); //undefined
+
+          element.style.backgroundColor = "yellow";
+
+        },
+        false
+      );
+
+      element.addEventListener(
+        "mouseout",
+        function (e) {
+          console.log(e);
+          console.log(e.target);
+          console.log(e.target.value); //undefined
+
+          element.style.backgroundColor = "";
+
+        },
+        false
+      );
+
+
+
+      let paragraphs = document.getElementsByTagName("p");
+      for (const p of paragraphs) {
+        p.addEventListener("click", () => {
+          p.textContent = p.textContent + " HACKED!";
+          p.style.color = "red";
+        });
+      }
+
+      //   get the element having both test and test2 class
+      let testobj = document.querySelectorAll(".test.test2");
+      console.log(testobj);
+
+      var ol = document.getElementById("ol");
+      var newLi1 = document.createElement("li");
+      newLi1.innerHTML = "append";
+      ol.append(newLi1);
+
+      var newLi2 = document.createElement("li");
+      newLi2.innerHTML = "prepend";
+      ol.prepend(newLi2);
+
+      const p = document.createElement("p");
+      p.innerHTML = "I am a new paragraph";
+      ol.before(p);
+      const button = document.createElement("button");
+      button.innerHTML = "remove the last li";
+      button.onclick = () => {
+        ol.lastElementChild.remove();
+      };
+      ol.after(button);
+    </script>
+  </body>
+</html>
